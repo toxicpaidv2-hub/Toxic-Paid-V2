@@ -638,6 +638,73 @@ local RocksFolder = AutoFarm:AddFolder("Rocks")
 -- 🪨 Rock Farming Label
 RocksFolder:AddLabel("Rock Farming")
 
+-- Fast Punch toggle with auto-punch functionality and persistent equipping
+RocksFolder:AddSwitch("Fast Punch", function(bool)
+    _G.FastPunch = bool
+    
+    if bool then
+        -- Function to continuously equip and modify punch
+        spawn(function()
+            while _G.FastPunch do
+                local player = game.Players.LocalPlayer
+                local character = player.Character
+                
+                -- Check if tool is not equipped
+                if character and not character:FindFirstChild("Punch") then
+                    local punch = player.Backpack:FindFirstChild("Punch")
+                    if punch then
+                        if punch:FindFirstChild("attackTime") then
+                            punch.attackTime.Value = 0
+                        end
+                        character.Humanoid:EquipTool(punch)
+                    end
+                elseif character and character:FindFirstChild("Punch") then
+                    -- Make sure equipped tool is modified
+                    local equipped = character:FindFirstChild("Punch")
+                    if equipped:FindFirstChild("attackTime") then
+                        equipped.attackTime.Value = 0
+                    end
+                end
+                
+                wait(0.1)
+            end
+        end)
+        
+        -- Function to rapidly punch
+        spawn(function()
+            while _G.FastPunch do
+                local player = game.Players.LocalPlayer
+                player.muscleEvent:FireServer("punch", "rightHand")
+                player.muscleEvent:FireServer("punch", "leftHand")
+                local character = player.Character
+                if character then
+                    local punchTool = character:FindFirstChild("Punch")
+                    if punchTool then
+                        punchTool:Activate()
+                    end
+                end
+                wait(0)
+            end
+        end)
+    else
+        -- Unequip and reset tool
+        local character = game.Players.LocalPlayer.Character
+        local equipped = character:FindFirstChild("Punch")
+        if equipped then
+            if equipped:FindFirstChild("attackTime") then
+                equipped.attackTime.Value = 0.35
+            end
+            equipped.Parent = game.Players.LocalPlayer.Backpack
+        end
+        
+        -- Also reset the backpack tool
+        local backpackTool = game.Players.LocalPlayer.Backpack:FindFirstChild("Punch")
+        if backpackTool and backpackTool:FindFirstChild("attackTime") then
+            backpackTool.attackTime.Value = 0.35
+        end
+    end
+end)
+
 -- Función para equipar Punch y hacer punch
 local function gettool()
     for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
