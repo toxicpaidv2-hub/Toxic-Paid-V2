@@ -60,7 +60,7 @@ print("Anti-AFK ativado!")
 
 
 -- CARGA DE LIBRERÍA
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/toxicpaidv2-hub/Toxic-Paid-V2/refs/heads/main/Librerya"))()
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/rafael25ic-blip/phoenix-cracked/refs/heads/main/Librerya%20Phoenix%20Crack"))()
 
 -- VENTANA PRINCIPAL
 local window = library:AddWindow("⚠️ Toxic PAID V2 | By Rafael ⚠️", {
