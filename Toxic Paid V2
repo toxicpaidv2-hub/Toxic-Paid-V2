@@ -508,6 +508,7 @@ RebirthFolder:AddButton("Jungle Lift", function()
     print("[Jungle Lift] Teletransport ejecutado correctamente.")
 end)
 
+AutoFarm:AddLabel("Farm Sin Packs")
 
 local autoEquipToolsFolder = AutoFarm:AddFolder("Auto Tools")
 
@@ -855,6 +856,216 @@ RocksFolder:AddSwitch("Ancient Jungle Rock", function(bool)
         end)
     end
 end)
+
+
+local rebirthsFolder = AutoFarm:AddFolder("Rebirths")
+
+-- Target rebirth input - direct text input
+rebirthsFolder:AddTextBox("Rebirth Target", function(text)
+    local newValue = tonumber(text)
+    if newValue and newValue > 0 then
+        targetRebirthValue = newValue
+        updateStats() -- Call the stats update function
+        
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "Objetivo Actualizado",
+            Text = "Nuevo objetivo: " .. tostring(targetRebirthValue) .. " renacimientos",
+            Duration = 0
+        })
+    else
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "Entrada InvÃ¡lida",
+            Text = "Por favor ingresa un nÃºmero vÃ¡lido mayor que 0",
+            Duration = 0
+        })
+    end
+end)
+
+-- Create toggle switches
+local infiniteSwitch -- Forward declaration
+
+local targetSwitch = rebirthsFolder:AddSwitch("Auto Rebirth Target", function(bool)
+    _G.targetRebirthActive = bool
+    
+    if bool then
+        -- Turn off infinite rebirth if it's on
+        if _G.infiniteRebirthActive and infiniteSwitch then
+            infiniteSwitch:Set(false)
+            _G.infiniteRebirthActive = false
+        end
+        
+        -- Start target rebirth loop
+        spawn(function()
+            while _G.targetRebirthActive and wait(0.1) do
+                local currentRebirths = game.Players.LocalPlayer.leaderstats.Rebirths.Value
+                
+                if currentRebirths >= targetRebirthValue then
+                    targetSwitch:Set(false)
+                    _G.targetRebirthActive = false
+                    
+                    game:GetService("StarterGui"):SetCore("SendNotification", {
+                        Title = "Â¡Objetivo Alcanzado!",
+                        Text = "Has alcanzado " .. tostring(targetRebirthValue) .. " renacimientos",
+                        Duration = 5
+                    })
+                    
+                    break
+                end
+                
+                game:GetService("ReplicatedStorage").rEvents.rebirthRemote:InvokeServer("rebirthRequest")
+            end
+        end)
+    end
+end, "Renacimiento automÃ¡tico hasta alcanzar el objetivo")
+
+infiniteSwitch = rebirthsFolder:AddSwitch("Auto Rebirth (Infinite)", function(bool)
+    _G.infiniteRebirthActive = bool
+    
+    if bool then
+        -- Turn off target rebirth if it's on
+        if _G.targetRebirthActive and targetSwitch then
+            targetSwitch:Set(false)
+            _G.targetRebirthActive = false
+        end
+        
+        -- Start infinite rebirth loop
+        spawn(function()
+            while _G.infiniteRebirthActive and wait(0.1) do
+                game:GetService("ReplicatedStorage").rEvents.rebirthRemote:InvokeServer("rebirthRequest")
+            end
+        end)
+    end
+end, "Renacimiento continuo sin parar")
+
+local sizeSwitch = rebirthsFolder:AddSwitch("Auto Size 1", function(bool)
+    _G.autoSizeActive = bool
+    
+    if bool then
+        spawn(function()
+            while _G.autoSizeActive and wait() do
+                game:GetService("ReplicatedStorage").rEvents.changeSpeedSizeRemote:InvokeServer("changeSize", 1)
+            end
+        end)
+    end
+end, "Establece el tamaÃ±o del personaje a 1 continuamente")
+
+local teleportSwitch = rebirthsFolder:AddSwitch("Auto Teleport to Muscle King", function(bool)
+    _G.teleportActive = bool
+    
+    if bool then
+        spawn(function()
+            while _G.teleportActive and wait() do
+                if game.Players.LocalPlayer.Character then
+                    game.Players.LocalPlayer.Character:MoveTo(Vector3.new(-8646, 17, -5738))
+                end
+            end
+        end)
+    end
+end, "Teletransporte continuo al Rey MÃºsculo")
+
+
+local farmGymsFolder = AutoFarm:AddFolder("Entrenar Gimnasios")
+
+-- Workout positions data
+local workoutPositions = {
+    ["Bench Press"] = {
+        ["Eternal Gym"] = CFrame.new(-7176.19141, 45.394104, -1106.31421),
+        ["Legend Gym"] = CFrame.new(4111.91748, 1020.46674, -3799.97217),
+        ["Muscle King Gym"] = CFrame.new(-8590.06152, 46.0167427, -6043.34717)
+    },
+    ["Squat"] = {
+        ["Eternal Gym"] = CFrame.new(-7176.19141, 45.394104, -1106.31421),
+        ["Legend Gym"] = CFrame.new(4304.99023, 987.829956, -4124.2334),
+        ["Muscle King Gym"] = CFrame.new(-8940.12402, 13.1642084, -5699.13477)
+    },
+    ["Deadlift"] = {
+        ["Eternal Gym"] = CFrame.new(-7176.19141, 45.394104, -1106.31421),
+        ["Legend Gym"] = CFrame.new(4304.99023, 987.829956, -4124.2334),
+        ["Muscle King Gym"] = CFrame.new(-8940.12402, 13.1642084, -5699.13477)
+    },
+    ["Pull Up"] = {
+        ["Eternal Gym"] = CFrame.new(-7176.19141, 45.394104, -1106.31421),
+        ["Legend Gym"] = CFrame.new(4304.99023, 987.829956, -4124.2334),
+        ["Muscle King Gym"] = CFrame.new(-8940.12402, 13.1642084, -5699.13477)
+    }
+}
+
+-- Workout types
+local workoutTypes = {
+    "Bench Press",
+    "Squat",
+    "Deadlift",
+    "Pull Up"
+}
+
+-- Gym locations (only the three requested)
+local gymLocations = {
+    "Eternal Gym",
+    "Legend Gym",
+    "Muscle King Gym"
+}
+
+-- Spanish translations for workout types
+local workoutTranslations = {
+    ["Bench Press"] = "Bench Press",
+    ["Squat"] = "Squat",
+    ["Deadlift"] = "Dead Lift",
+    ["Pull Up"] = "Pull Up"
+}
+
+-- Store references to toggle objects
+local gymToggles = {}
+
+-- Create dropdowns and toggles for each workout type
+for _, workoutType in ipairs(workoutTypes) do
+    -- Create dropdown for gym selection
+    local dropdownName = workoutType .. "GymDropdown"
+    local spanishWorkoutName = workoutTranslations[workoutType]
+    
+    -- Create the dropdown with the correct format
+    local dropdown = farmGymsFolder:AddDropdown(spanishWorkoutName .. " - Gimnasio", function(selected)
+        _G["selected" .. string.gsub(workoutType, " ", "") .. "Gym"] = selected
+    end)
+    
+    -- Add gym locations to the dropdown
+    for _, gymName in ipairs(gymLocations) do
+        dropdown:Add(gymName)
+    end
+    
+    -- Create toggle for workout
+    local toggleName = workoutType .. "GymToggle"
+    local toggle = farmGymsFolder:AddSwitch(spanishWorkoutName, function(bool)
+        getgenv().workingGym = bool
+        getgenv().currentWorkoutType = workoutType
+        
+        if bool then
+            local selectedGym = _G["selected" .. string.gsub(workoutType, " ", "") .. "Gym"] or gymLocations[1]
+            
+            -- Make sure we have a valid position
+            if workoutPositions[workoutType] and workoutPositions[workoutType][selectedGym] then
+                -- Stop any other workout that might be running
+                for otherType, otherToggle in pairs(gymToggles) do
+                    if otherType ~= workoutType and otherToggle then
+                        otherToggle:Set(false)
+                    end
+                end
+                
+                -- Start the workout
+                teleportAndStart(workoutType, workoutPositions[workoutType][selectedGym])
+            else
+                -- Notify user if position is not found
+                game:GetService("StarterGui"):SetCore("SendNotification", {
+                    Title = "Error",
+                    Text = "Position not found for " .. workoutType .. " in " .. selectedGym,
+                    Duration = 5
+                })
+            end
+        end
+    end)
+    
+    -- Store reference to toggle
+    gymToggles[workoutType] = toggle
+end
 
 
 -- 📊 NUEVA PESTAÑA: CALCULAR STATS
