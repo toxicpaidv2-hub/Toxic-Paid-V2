@@ -47,6 +47,18 @@ if not whitelist[LocalPlayer.Name] then
     LocalPlayer:Kick("L CRIS PAGAME MIS 3K ROBUX O NO HABRA WHITELIST HASTA QUE YO QUIERA")
 end
 
+
+local function preventAFK()
+    VirtualUser:Button2Down(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
+    task.wait(1)
+    VirtualUser:Button2Up(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
+    print("Anti-AFK: Prevented kick")
+end
+
+Players.LocalPlayer.Idled:Connect(preventAFK)
+print("Anti-AFK ativado!")
+
+
 -- CARGA DE LIBRERÍA
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/rafael25ic-blip/phoenix-cracked/refs/heads/main/Librerya%20Phoenix%20Crack"))()
 
@@ -58,6 +70,8 @@ local window = library:AddWindow("⚠️ Toxic PAID V2 | By Rafael ⚠️", {
 })
 
 local AutoFarm = window:AddTab("Farm OP")
+
+AutoFarm:AddLabel("Farm Con Packs")
 
 -- 📌 Crear Folder dentro de la pestaña "Farm OP"
 local FarmFolder = AutoFarm:AddFolder("Farm Fuerza")
