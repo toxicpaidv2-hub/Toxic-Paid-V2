@@ -4304,51 +4304,63 @@ task.spawn(function()
     end
 end)
 
+Gift:AddButton("Auto Clean Inventary", function(state)
+    autoEatBoostsEnabled = state
+end)
 
-local autoEatBoostsEnabled = false
-
-local boostsList = {
-    "ULTRA Shake",
-    "TOUGH Bar",
-    "Protein Shake",
+-- EAT EVERYTHING
+local itemList = {
+    "Tropical Shake",
     "Energy Shake",
     "Protein Bar",
-    "Energy Bar",
-    "Tropical Shake"
+    "TOUGH Bar",
+    "Protein Shake",
+    "ULTRA Shake",
+    "Energy Bar"
 }
 
-local function eatAllBoosts()
-    local player = game.Players.LocalPlayer
-    local backpack = player:WaitForChild("Backpack")
-    local character = player.Character or player.CharacterAdded:Wait()
+local function formatEventName(itemName)
+    local parts = {}
+    for word in itemName:gmatch("%S+") do
+        table.insert(parts, word:lower())
+    end
+    for i = 2, #parts do
+        parts[i] = parts[i]:sub(1, 1):upper() .. parts[i]:sub(2)
+    end
+    return table.concat(parts)
+end
 
-    for _, boostName in ipairs(boostsList) do
-        local boost = backpack:FindFirstChild(boostName)
-        while boost do
-            boost.Parent = character
-            pcall(function()
-                boost:Activate()
-            end)
-            task.wait(0)
-            boost = backpack:FindFirstChild(boostName)
+local function activateRandomItems(count)
+    local shuffledItems = {}
+    for _, item in ipairs(itemList) do
+        table.insert(shuffledItems, item)
+    end
+    for i = #shuffledItems, 2, -1 do
+        local j = math.random(i)
+        shuffledItems[i], shuffledItems[j] = shuffledItems[j], shuffledItems[i]
+    end
+    for i = 1, math.min(count, #shuffledItems) do
+        local tool = player.Character:FindFirstChild(shuffledItems[i]) or player.Backpack:FindFirstChild(shuffledItems[i])
+        if tool then
+            local eventName = formatEventName(shuffledItems[i])
+            muscleEvent:FireServer(eventName, tool)
         end
     end
 end
 
+local running = false
+
 task.spawn(function()
     while true do
-        if autoEatBoostsEnabled then
-            eatAllBoosts()
-            task.wait(2)
+        if running then
+            activateRandomItems(4)
+            task.wait(0.5)
         else
-            task.wait(1)
+            task.wait(0.5)
         end
     end
 end)
 
-Gift:AddButton("Auto Clean Inventary", function(state)
-    autoEatBoostsEnabled = state
-end)
 
 
 
