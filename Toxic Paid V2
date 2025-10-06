@@ -3815,8 +3815,8 @@ Killer:AddButton("Tamaño NaN", function()
     local args = {"changeSize", 0/0}
     game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("changeSpeedSizeRemote"):InvokeServer(unpack(args))
 end)
-Killer:AddButton("Activar pegar muerto", function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/DsQKiTnC"))()
+Killer:AddButton("Pegar Muerto", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/AxVHmk1i"))()
 end)
 
 
