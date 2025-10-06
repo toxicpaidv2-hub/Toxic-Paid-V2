@@ -1,0 +1,292 @@
+repeat wait() until game:IsLoaded() and game.Players and game.Players.LocalPlayer and game.Players.LocalPlayer.Character
+
+if getgenv().AntiAfkExecuted and thisoneissocoldww then 
+    getgenv().AntiAfkExecuted = false
+    getgenv().zamanbaslaticisi = false
+    game.CoreGui.thisoneissocoldww:Destroy()
+end
+getgenv().AntiAfkExecuted = true
+
+local thisoneissocoldww = Instance.new("ScreenGui")
+local madebybloodofbatus = Instance.new("Frame")
+local UICornerw = Instance.new("UICorner")
+local DestroyButton = Instance.new("TextButton")
+local uselesslabelone = Instance.new("TextLabel")
+local timerlabel = Instance.new("TextLabel")
+local uselesslabeltwo = Instance.new("TextLabel")
+local fpslabel = Instance.new("TextLabel")
+local uselesslabelthree = Instance.new("TextLabel")
+local pinglabel = Instance.new("TextLabel")
+local uselessframeone = Instance.new("Frame")
+local UICornerww = Instance.new("UICorner")
+local uselesslabelfour = Instance.new("TextLabel")
+
+thisoneissocoldww.Name = "thisoneissocoldww"
+thisoneissocoldww.Parent = game.CoreGui
+thisoneissocoldww.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+madebybloodofbatus.Name = "madebybloodofbatus"
+madebybloodofbatus.Parent = thisoneissocoldww
+madebybloodofbatus.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+madebybloodofbatus.Position = UDim2.new(0.085,0,0.13,0)
+madebybloodofbatus.Size = UDim2.new(0,225,0,96)
+
+UICornerw.Parent = madebybloodofbatus
+
+DestroyButton.Name = "DestroyButton"
+DestroyButton.Parent = madebybloodofbatus
+DestroyButton.BackgroundColor3 = Color3.fromRGB(255,255,255)
+DestroyButton.BackgroundTransparency = 1
+DestroyButton.Position = UDim2.new(0.87,0,0.02,0)
+DestroyButton.Size = UDim2.new(0,27,0,15)
+DestroyButton.Font = Enum.Font.SourceSans
+DestroyButton.Text = "X"
+DestroyButton.TextColor3 = Color3.fromRGB(255,255,255)
+DestroyButton.TextSize = 14
+DestroyButton.MouseButton1Click:Connect(function()
+    getgenv().AntiAfkExecuted = false
+    wait(0.1)
+    thisoneissocoldww:Destroy()
+end)
+
+uselesslabelone.Parent = madebybloodofbatus
+uselesslabelone.BackgroundTransparency = 1
+uselesslabelone.Position = UDim2.new(0.3,0,0,0)
+uselesslabelone.Size = UDim2.new(0,95,0,24)
+uselesslabelone.Font = Enum.Font.SourceSans
+uselesslabelone.Text = "Anti Afk V2 BY MVX_DeathKillerX"
+uselesslabelone.TextColor3 = Color3.fromRGB(255,255,255)
+uselesslabelone.TextSize = 14
+
+timerlabel.Parent = madebybloodofbatus
+timerlabel.BackgroundTransparency = 1
+timerlabel.Position = UDim2.new(0.65,0,0.68,0)
+timerlabel.Size = UDim2.new(0,60,0,24)
+timerlabel.Font = Enum.Font.SourceSans
+timerlabel.Text = "0:0:0"
+timerlabel.TextColor3 = Color3.fromRGB(255,255,255)
+timerlabel.TextSize = 14
+
+uselesslabeltwo.Parent = madebybloodofbatus
+uselesslabeltwo.BackgroundTransparency = 1
+uselesslabeltwo.Position = UDim2.new(0.03,0,0.37,0)
+uselesslabeltwo.Size = UDim2.new(0,29,0,24)
+uselesslabeltwo.Font = Enum.Font.SourceSans
+uselesslabeltwo.Text = "Ping: "
+uselesslabeltwo.TextColor3 = Color3.fromRGB(255,255,255)
+uselesslabeltwo.TextSize = 14
+
+fpslabel.Parent = madebybloodofbatus
+fpslabel.BackgroundTransparency = 1
+fpslabel.Position = UDim2.new(0.72,0,0.35,0)
+fpslabel.Size = UDim2.new(0,55,0,24)
+fpslabel.Font = Enum.Font.SourceSans
+fpslabel.Text = "this contact dev"
+fpslabel.TextColor3 = Color3.fromRGB(255,255,255)
+fpslabel.TextSize = 14
+
+uselesslabelthree.Parent = madebybloodofbatus
+uselesslabelthree.BackgroundTransparency = 1
+uselesslabelthree.Position = UDim2.new(0.5,0,0.35,0)
+uselesslabelthree.Size = UDim2.new(0,26,0,24)
+uselesslabelthree.Font = Enum.Font.SourceSans
+uselesslabelthree.Text = "Fps: "
+uselesslabelthree.TextColor3 = Color3.fromRGB(255,255,255)
+uselesslabelthree.TextSize = 14
+
+pinglabel.Parent = madebybloodofbatus
+pinglabel.BackgroundTransparency = 1
+pinglabel.Position = UDim2.new(0.2,0,0.37,0)
+pinglabel.Size = UDim2.new(0,55,0,24)
+pinglabel.Font = Enum.Font.SourceSans
+pinglabel.Text = "if you see this"
+pinglabel.TextColor3 = Color3.fromRGB(255,255,255)
+pinglabel.TextSize = 14
+pinglabel.TextWrapped = true
+
+uselessframeone.Parent = madebybloodofbatus
+uselessframeone.BackgroundColor3 = Color3.fromRGB(255,255,255)
+uselessframeone.Position = UDim2.new(0.004,0,0.24,0)
+uselessframeone.Size = UDim2.new(0,224,0,5)
+UICornerww.CornerRadius = UDim.new(0,50)
+UICornerww.Parent = uselessframeone
+
+uselesslabelfour.Parent = madebybloodofbatus
+uselesslabelfour.BackgroundTransparency = 1
+uselesslabelfour.Position = UDim2.new(0.05,0,0.81,0)
+uselesslabelfour.Size = UDim2.new(0,95,0,12)
+uselesslabelfour.Font = Enum.Font.SourceSans
+uselesslabelfour.Text = "Anti-Afk Auto Enabled"
+uselesslabelfour.TextColor3 = Color3.fromRGB(255,255,255)
+uselesslabelfour.TextSize = 14
+
+-- Draggable
+local Drag = thisoneissocoldww.madebybloodofbatus
+local gsTween = game:GetService("TweenService")
+local UserInputService = game:GetService("UserInputService")
+local dragging, dragInput, dragStart, startPos
+local function update(input)
+    local delta = input.Position - dragStart
+    local dragTime = 0.04
+    local SmoothDrag = {}
+    SmoothDrag.Position = UDim2.new(startPos.X.Scale,startPos.X.Offset+delta.X,startPos.Y.Scale,startPos.Y.Offset+delta.Y)
+    gsTween:Create(Drag,TweenInfo.new(dragTime,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut),SmoothDrag):Play()
+end
+Drag.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        dragging = true
+        dragStart = input.Position
+        startPos = Drag.Position
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then dragging = false end
+        end)
+    end
+end)
+Drag.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+        dragInput = input
+    end
+end)
+UserInputService.InputChanged:Connect(function(input)
+    if input == dragInput and dragging then update(input) end
+end)
+
+-- Anti Afk
+local vu = game:GetService('VirtualUser')
+game.Players.LocalPlayer.Idled:Connect(function()
+    vu:CaptureController()
+    vu:ClickButton2(Vector2.new())
+end)
+
+-- FPS & Ping
+local RunService = game:GetService("RunService")
+local sec = tick()
+local FPS = {}
+RunService.RenderStepped:Connect(function()
+    local fr = tick()
+    for i=#FPS,1,-1 do FPS[i+1] = (FPS[i]>=fr-1) and FPS[i] or nil end
+    FPS[1] = fr
+    local fps = math.floor((tick()-sec>=1 and #FPS) or (#FPS/(tick()-sec)))
+    fpslabel.Text = fps
+end)
+
+spawn(function()
+    while true do
+        wait(1)
+        local ping = math.floor(tonumber(game:GetService("Stats"):FindFirstChild("PerformanceStats").Ping:GetValue()))
+        pinglabel.Text = ping
+    end
+end)
+
+-- Timer
+local saniye, dakika, saat = 0,0,0
+getgenv().zamanbaslaticisi = true
+spawn(function()
+    while true do
+        if getgenv().zamanbaslaticisi then
+            saniye = saniye + 1
+            wait(1)
+            if saniye>=60 then saniye=0;dakika=dakika+1 end
+            if dakika>=60 then dakika=0;saat=saat+1 end
+            timerlabel.Text = saat..":"..dakika..":"..saniye
+        end
+    end
+end)
+
+-- Hide/Show Effects
+local p = game.Players.LocalPlayer
+local EFFECT_CLASSES = { "ParticleEmitter" }
+local EFFECT_KEYS = { "Effect" }
+local PET_EFFECTS = { "PetStat","PetAura","PetGlow" }
+
+local function isPetEffect(name)
+    for _, pet in ipairs(PET_EFFECTS) do if name:lower():find(pet:lower()) then return true end end
+    return false
+end
+local function isOurEffect(v)
+    for _, cls in ipairs(EFFECT_CLASSES) do if v:IsA(cls) then return true end end
+    for _, key in ipairs(EFFECT_KEYS) do if v.Name:lower():find(key:lower()) then return true end end
+    return false
+end
+
+_G.StoredEffects = _G.StoredEffects or {}
+local function hideAll() for _,v in ipairs(game:GetDescendants()) do if isOurEffect(v) and not isPetEffect(v.Name) and not _G.StoredEffects[v] then pcall(function() _G.StoredEffects[v]=v.Parent;v.Parent=nil end) end end end
+local function showAll() for v,orig in pairs(_G.StoredEffects) do pcall(function() if v and orig then v.Parent=orig end end) end _G.StoredEffects={} end
+
+if not _G.ToggleInit then
+    p.CharacterAdded:Connect(function() wait(1) if _G.EffectsHidden then hideAll() else showAll() end end)
+    game.DescendantAdded:Connect(function(o) if _G.EffectsHidden and isOurEffect(o) and not isPetEffect(o.Name) then wait(0.1) pcall(function() if not _G.StoredEffects[o] then _G.StoredEffects[o]=o.Parent;o.Parent=nil end end) end end)
+    _G.ToggleInit=true
+end
+_G.EffectsHidden = not _G.EffectsHidden
+if _G.EffectsHidden then hideAll() else showAll() end
+
+-- AutoFarm
+getgenv().AutoFarming = not getgenv().AutoFarming
+local a = game:GetService("ReplicatedStorage")
+local b = game:GetService("Players")
+local c = b.LocalPlayer
+
+local function equipPetByName(name)
+    local folderPets=c:FindFirstChild("petsFolder")
+    if not folderPets then return end
+    for _,folder in pairs(folderPets:GetChildren()) do
+        if folder:IsA("Folder") then
+            for _,pet in pairs(folder:GetChildren()) do
+                if pet.Name==name then a.rEvents.equipPetEvent:FireServer("equipPet",pet) end
+            end
+        end
+    end
+end
+
+local function unequipAllPets()
+    local f=c:FindFirstChild("petsFolder")
+    if not f then return end
+    for _,folder in pairs(f:GetChildren()) do
+        if folder:IsA("Folder") then
+            for _,pet in pairs(folder:GetChildren()) do
+                a.rEvents.equipPetEvent:FireServer("unequipPet",pet)
+            end
+        end
+    end
+    task.wait(0.1)
+end
+
+local function getGoldenRebirthCount()
+    local g=c:FindFirstChild("ultimatesFolder")
+    if g and g:FindFirstChild("Golden Rebirth") then return g["Golden Rebirth"].Value end
+    return 0
+end
+
+local function getStrengthRequiredForRebirth()
+    local rebirths=c.leaderstats.Rebirths.Value
+    local baseStrength=10000+(5000*rebirths)
+    local golden=getGoldenRebirthCount()
+    if golden>=1 and golden<=5 then baseStrength=baseStrength*(1-golden*0.1) end
+    return math.floor(baseStrength)
+end
+
+if getgenv().AutoFarming then
+    task.spawn(function()
+        while getgenv().AutoFarming do
+            local requiredStrength=getStrengthRequiredForRebirth()
+            unequipAllPets()
+            equipPetByName("Swift Samurai")
+
+            while c.leaderstats.Strength.Value<requiredStrength and getgenv().AutoFarming do
+                for _=1,10 do c.muscleEvent:FireServer("rep") end
+                task.wait()
+            end
+
+            if getgenv().AutoFarming then
+                unequipAllPets()
+                equipPetByName("Tribal Overlord")
+                local oldRebirths=c.leaderstats.Rebirths.Value
+                repeat
+                    a.rEvents.rebirthRemote:InvokeServer("rebirthRequest")
+                    task.wait(0.1)
+                until c.leaderstats.Rebirths.Value>oldRebirths or not getgenv().AutoFarming
+            end
+        end
+    end)
+end
