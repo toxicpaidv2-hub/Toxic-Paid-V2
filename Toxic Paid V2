@@ -61,6 +61,204 @@ local window = library:AddWindow("⚠️ Toxic PAID V2 | By Rafael ⚠️", {
 local AutoFarm = window:AddTab("Farm OP")
 
 
+AutoFarm:AddSwitch("Anti AFK", function(state)
+
+repeat wait() until game:IsLoaded() and game.Players and game.Players.LocalPlayer and game.Players.LocalPlayer.Character
+
+if getgenv().AntiAfkExecuted and thisoneissocoldww then 
+    getgenv().AntiAfkExecuted = false
+    getgenv().zamanbaslaticisi = false
+    game.CoreGui.thisoneissocoldww:Destroy()
+end
+getgenv().AntiAfkExecuted = true
+
+local thisoneissocoldww = Instance.new("ScreenGui")
+local madebybloodofbatus = Instance.new("Frame")
+local UICornerw = Instance.new("UICorner")
+local DestroyButton = Instance.new("TextButton")
+local uselesslabelone = Instance.new("TextLabel")
+local timerlabel = Instance.new("TextLabel")
+local uselesslabeltwo = Instance.new("TextLabel")
+local fpslabel = Instance.new("TextLabel")
+local uselesslabelthree = Instance.new("TextLabel")
+local pinglabel = Instance.new("TextLabel")
+local uselessframeone = Instance.new("Frame")
+local UICornerww = Instance.new("UICorner")
+local uselesslabelfour = Instance.new("TextLabel")
+
+thisoneissocoldww.Name = "thisoneissocoldww"
+thisoneissocoldww.Parent = game.CoreGui
+thisoneissocoldww.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+madebybloodofbatus.Name = "madebybloodofbatus"
+madebybloodofbatus.Parent = thisoneissocoldww
+madebybloodofbatus.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+madebybloodofbatus.Position = UDim2.new(0.085,0,0.13,0)
+madebybloodofbatus.Size = UDim2.new(0,225,0,96)
+
+UICornerw.Parent = madebybloodofbatus
+
+DestroyButton.Name = "DestroyButton"
+DestroyButton.Parent = madebybloodofbatus
+DestroyButton.BackgroundColor3 = Color3.fromRGB(255,255,255)
+DestroyButton.BackgroundTransparency = 1
+DestroyButton.Position = UDim2.new(0.87,0,0.02,0)
+DestroyButton.Size = UDim2.new(0,27,0,15)
+DestroyButton.Font = Enum.Font.SourceSans
+DestroyButton.Text = "X"
+DestroyButton.TextColor3 = Color3.fromRGB(255,255,255)
+DestroyButton.TextSize = 14
+DestroyButton.MouseButton1Click:Connect(function()
+    getgenv().AntiAfkExecuted = false
+    wait(0.1)
+    thisoneissocoldww:Destroy()
+end)
+
+uselesslabelone.Parent = madebybloodofbatus
+uselesslabelone.BackgroundTransparency = 1
+uselesslabelone.Position = UDim2.new(0.3,0,0,0)
+uselesslabelone.Size = UDim2.new(0,95,0,24)
+uselesslabelone.Font = Enum.Font.SourceSans
+uselesslabelone.Text = "Anti Afk V2 BY MVX_DeathKillerX"
+uselesslabelone.TextColor3 = Color3.fromRGB(255,255,255)
+uselesslabelone.TextSize = 14
+
+timerlabel.Parent = madebybloodofbatus
+timerlabel.BackgroundTransparency = 1
+timerlabel.Position = UDim2.new(0.65,0,0.68,0)
+timerlabel.Size = UDim2.new(0,60,0,24)
+timerlabel.Font = Enum.Font.SourceSans
+timerlabel.Text = "0:0:0"
+timerlabel.TextColor3 = Color3.fromRGB(255,255,255)
+timerlabel.TextSize = 14
+
+uselesslabeltwo.Parent = madebybloodofbatus
+uselesslabeltwo.BackgroundTransparency = 1
+uselesslabeltwo.Position = UDim2.new(0.03,0,0.37,0)
+uselesslabeltwo.Size = UDim2.new(0,29,0,24)
+uselesslabeltwo.Font = Enum.Font.SourceSans
+uselesslabeltwo.Text = "Ping: "
+uselesslabeltwo.TextColor3 = Color3.fromRGB(255,255,255)
+uselesslabeltwo.TextSize = 14
+
+fpslabel.Parent = madebybloodofbatus
+fpslabel.BackgroundTransparency = 1
+fpslabel.Position = UDim2.new(0.72,0,0.35,0)
+fpslabel.Size = UDim2.new(0,55,0,24)
+fpslabel.Font = Enum.Font.SourceSans
+fpslabel.Text = "this contact dev"
+fpslabel.TextColor3 = Color3.fromRGB(255,255,255)
+fpslabel.TextSize = 14
+
+uselesslabelthree.Parent = madebybloodofbatus
+uselesslabelthree.BackgroundTransparency = 1
+uselesslabelthree.Position = UDim2.new(0.5,0,0.35,0)
+uselesslabelthree.Size = UDim2.new(0,26,0,24)
+uselesslabelthree.Font = Enum.Font.SourceSans
+uselesslabelthree.Text = "Fps: "
+uselesslabelthree.TextColor3 = Color3.fromRGB(255,255,255)
+uselesslabelthree.TextSize = 14
+
+pinglabel.Parent = madebybloodofbatus
+pinglabel.BackgroundTransparency = 1
+pinglabel.Position = UDim2.new(0.2,0,0.37,0)
+pinglabel.Size = UDim2.new(0,55,0,24)
+pinglabel.Font = Enum.Font.SourceSans
+pinglabel.Text = "if you see this"
+pinglabel.TextColor3 = Color3.fromRGB(255,255,255)
+pinglabel.TextSize = 14
+pinglabel.TextWrapped = true
+
+uselessframeone.Parent = madebybloodofbatus
+uselessframeone.BackgroundColor3 = Color3.fromRGB(255,255,255)
+uselessframeone.Position = UDim2.new(0.004,0,0.24,0)
+uselessframeone.Size = UDim2.new(0,224,0,5)
+UICornerww.CornerRadius = UDim.new(0,50)
+UICornerww.Parent = uselessframeone
+
+uselesslabelfour.Parent = madebybloodofbatus
+uselesslabelfour.BackgroundTransparency = 1
+uselesslabelfour.Position = UDim2.new(0.05,0,0.81,0)
+uselesslabelfour.Size = UDim2.new(0,95,0,12)
+uselesslabelfour.Font = Enum.Font.SourceSans
+uselesslabelfour.Text = "Anti-Afk Auto Enabled"
+uselesslabelfour.TextColor3 = Color3.fromRGB(255,255,255)
+uselesslabelfour.TextSize = 14
+
+-- Draggable
+local Drag = thisoneissocoldww.madebybloodofbatus
+local gsTween = game:GetService("TweenService")
+local UserInputService = game:GetService("UserInputService")
+local dragging, dragInput, dragStart, startPos
+local function update(input)
+    local delta = input.Position - dragStart
+    local dragTime = 0.04
+    local SmoothDrag = {}
+    SmoothDrag.Position = UDim2.new(startPos.X.Scale,startPos.X.Offset+delta.X,startPos.Y.Scale,startPos.Y.Offset+delta.Y)
+    gsTween:Create(Drag,TweenInfo.new(dragTime,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut),SmoothDrag):Play()
+end
+Drag.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        dragging = true
+        dragStart = input.Position
+        startPos = Drag.Position
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then dragging = false end
+        end)
+    end
+end)
+Drag.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+        dragInput = input
+    end
+end)
+UserInputService.InputChanged:Connect(function(input)
+    if input == dragInput and dragging then update(input) end
+end)
+
+-- Anti Afk
+local vu = game:GetService('VirtualUser')
+game.Players.LocalPlayer.Idled:Connect(function()
+    vu:CaptureController()
+    vu:ClickButton2(Vector2.new())
+end)
+
+-- FPS & Ping
+local RunService = game:GetService("RunService")
+local sec = tick()
+local FPS = {}
+RunService.RenderStepped:Connect(function()
+    local fr = tick()
+    for i=#FPS,1,-1 do FPS[i+1] = (FPS[i]>=fr-1) and FPS[i] or nil end
+    FPS[1] = fr
+    local fps = math.floor((tick()-sec>=1 and #FPS) or (#FPS/(tick()-sec)))
+    fpslabel.Text = fps
+end)
+
+spawn(function()
+    while true do
+        wait(1)
+        local ping = math.floor(tonumber(game:GetService("Stats"):FindFirstChild("PerformanceStats").Ping:GetValue()))
+        pinglabel.Text = ping
+    end
+end)
+
+-- Timer
+local saniye, dakika, saat = 0,0,0
+getgenv().zamanbaslaticisi = true
+spawn(function()
+    while true do
+        if getgenv().zamanbaslaticisi then
+            saniye = saniye + 1
+            wait(1)
+            if saniye>=60 then saniye=0;dakika=dakika+1 end
+            if dakika>=60 then dakika=0;saat=saat+1 end
+            timerlabel.Text = saat..":"..dakika..":"..saniye
+        end
+    end
+end)
+
+
 -- 2️⃣ Switch: Eat Egg (30 Min)
 local autoEatEnabled = false
 local function eatProteinEggNew()
@@ -258,180 +456,6 @@ if not getgenv()._AutoRepFarmLoop then
     end)
 end
 
--- 3️⃣ Switch: Anti AFK
--- ✅ SWITCH PARA ACTIVAR / DESACTIVAR ANTI AFK
-FarmFolder:AddSwitch("Anti AFK", function(state)
-    getgenv().AntiAfkEnabled = state
-
-    if state then
-        repeat task.wait() until game:IsLoaded() and game.Players and game.Players.LocalPlayer and game.Players.LocalPlayer.Character
-
-        if getgenv().AntiAfkExecuted and thisoneissocoldww then 
-            getgenv().AntiAfkExecuted = false
-            getgenv().zamanbaslaticisi = false
-            game.CoreGui.thisoneissocoldww:Destroy()
-        end
-        getgenv().AntiAfkExecuted = true
-
-        -- 🧱 Crear Interfaz
-        local thisoneissocoldww = Instance.new("ScreenGui")
-        local mainFrame = Instance.new("Frame")
-        local UICorner = Instance.new("UICorner")
-        local closeBtn = Instance.new("TextButton")
-        local title = Instance.new("TextLabel")
-        local timerLabel = Instance.new("TextLabel")
-        local pingLabel = Instance.new("TextLabel")
-        local fpsLabel = Instance.new("TextLabel")
-
-        thisoneissocoldww.Name = "thisoneissocoldww"
-        thisoneissocoldww.Parent = game.CoreGui
-        thisoneissocoldww.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-        mainFrame.Name = "mainFrame"
-        mainFrame.Parent = thisoneissocoldww
-        mainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-        mainFrame.Position = UDim2.new(0.085, 0, 0.13, 0)
-        mainFrame.Size = UDim2.new(0, 225, 0, 96)
-        UICorner.Parent = mainFrame
-
-        closeBtn.Parent = mainFrame
-        closeBtn.BackgroundTransparency = 1
-        closeBtn.Position = UDim2.new(0.87, 0, 0.02, 0)
-        closeBtn.Size = UDim2.new(0, 27, 0, 15)
-        closeBtn.Font = Enum.Font.SourceSans
-        closeBtn.Text = "X"
-        closeBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
-        closeBtn.TextSize = 14
-        closeBtn.MouseButton1Click:Connect(function()
-            getgenv().AntiAfkExecuted = false
-            getgenv().AntiAfkEnabled = false
-            wait(0.1)
-            thisoneissocoldww:Destroy()
-        end)
-
-        title.Parent = mainFrame
-        title.BackgroundTransparency = 1
-        title.Position = UDim2.new(0.15, 0, 0, 0)
-        title.Size = UDim2.new(0, 160, 0, 24)
-        title.Font = Enum.Font.SourceSans
-        title.Text = "Anti AFK v2 by MVX_DeathKillerX"
-        title.TextColor3 = Color3.fromRGB(255, 255, 255)
-        title.TextSize = 14
-
-        pingLabel.Parent = mainFrame
-        pingLabel.BackgroundTransparency = 1
-        pingLabel.Position = UDim2.new(0.05, 0, 0.37, 0)
-        pingLabel.Size = UDim2.new(0, 55, 0, 24)
-        pingLabel.Font = Enum.Font.SourceSans
-        pingLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-        pingLabel.TextSize = 14
-
-        fpsLabel.Parent = mainFrame
-        fpsLabel.BackgroundTransparency = 1
-        fpsLabel.Position = UDim2.new(0.6, 0, 0.37, 0)
-        fpsLabel.Size = UDim2.new(0, 55, 0, 24)
-        fpsLabel.Font = Enum.Font.SourceSans
-        fpsLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-        fpsLabel.TextSize = 14
-
-        timerLabel.Parent = mainFrame
-        timerLabel.BackgroundTransparency = 1
-        timerLabel.Position = UDim2.new(0.65, 0, 0.68, 0)
-        timerLabel.Size = UDim2.new(0, 60, 0, 24)
-        timerLabel.Font = Enum.Font.SourceSans
-        timerLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-        timerLabel.TextSize = 14
-        timerLabel.Text = "0:0:0"
-
-        -- 🖱️ Hacer arrastrable
-        local Drag = mainFrame
-        local TweenService = game:GetService("TweenService")
-        local UserInputService = game:GetService("UserInputService")
-        local dragging, dragInput, dragStart, startPos
-
-        local function update(input)
-            local delta = input.Position - dragStart
-            local Smooth = {}
-            Smooth.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-            TweenService:Create(Drag, TweenInfo.new(0.04, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), Smooth):Play()
-        end
-
-        Drag.InputBegan:Connect(function(input)
-            if input.UserInputType == Enum.UserInputType.MouseButton1 then
-                dragging = true
-                dragStart = input.Position
-                startPos = Drag.Position
-                input.Changed:Connect(function()
-                    if input.UserInputState == Enum.UserInputState.End then dragging = false end
-                end)
-            end
-        end)
-        Drag.InputChanged:Connect(function(input)
-            if input.UserInputType == Enum.UserInputType.MouseMovement then
-                dragInput = input
-            end
-        end)
-        UserInputService.InputChanged:Connect(function(input)
-            if input == dragInput and dragging then update(input) end
-        end)
-
-        -- ⚡ Anti AFK funcional
-        local vu = game:GetService("VirtualUser")
-        getgenv().AntiAfkConnection = game.Players.LocalPlayer.Idled:Connect(function()
-            if getgenv().AntiAfkEnabled then
-                vu:CaptureController()
-                vu:ClickButton2(Vector2.new())
-            end
-        end)
-
-        -- 📊 FPS y Ping
-        local RunService = game:GetService("RunService")
-        local tickStart = tick()
-        local FPS = {}
-
-        RunService.RenderStepped:Connect(function()
-            if not getgenv().AntiAfkEnabled then return end
-            local now = tick()
-            for i = #FPS, 1, -1 do
-                FPS[i + 1] = (FPS[i] >= now - 1) and FPS[i] or nil
-            end
-            FPS[1] = now
-            local fps = math.floor((tick() - tickStart >= 1 and #FPS) or (#FPS / (tick() - tickStart)))
-            fpsLabel.Text = "FPS: " .. fps
-        end)
-
-        task.spawn(function()
-            while getgenv().AntiAfkEnabled do
-                task.wait(1)
-                local ping = math.floor(tonumber(game:GetService("Stats"):FindFirstChild("PerformanceStats").Ping:GetValue()))
-                pingLabel.Text = "Ping: " .. ping
-            end
-        end)
-
-        -- ⏱️ Timer
-        local s, m, h = 0, 0, 0
-        getgenv().zamanbaslaticisi = true
-        task.spawn(function()
-            while getgenv().zamanbaslaticisi and getgenv().AntiAfkEnabled do
-                s += 1
-                if s >= 60 then s = 0; m += 1 end
-                if m >= 60 then m = 0; h += 1 end
-                timerLabel.Text = string.format("%02d:%02d:%02d", h, m, s)
-                task.wait(1)
-            end
-        end)
-    else
-        -- 🚫 Si el switch está OFF, desactiva todo
-        getgenv().AntiAfkEnabled = false
-        getgenv().zamanbaslaticisi = false
-        if game.CoreGui:FindFirstChild("thisoneissocoldww") then
-            game.CoreGui.thisoneissocoldww:Destroy()
-        end
-        if getgenv().AntiAfkConnection then
-            getgenv().AntiAfkConnection:Disconnect()
-        end
-    end
-end)
 
 
 -- 4️⃣ Switch: Anti Lag
@@ -606,181 +630,6 @@ RebirthFolder:AddSwitch("Hide All Frames", function(bool)
     for _, obj in pairs(rSto:GetChildren()) do
         if obj.Name:match("Frame$") then
             obj.Visible = not bool
-        end
-    end
-end)
-
--- 🛡️ Anti AFK (ahora está aquí 👌)
--- ✅ SWITCH PARA ACTIVAR / DESACTIVAR ANTI AFK
-RebirthFolder:AddSwitch("Anti AFK", function(state)
-    getgenv().AntiAfkEnabled = state
-
-    if state then
-        repeat task.wait() until game:IsLoaded() and game.Players and game.Players.LocalPlayer and game.Players.LocalPlayer.Character
-
-        if getgenv().AntiAfkExecuted and thisoneissocoldww then 
-            getgenv().AntiAfkExecuted = false
-            getgenv().zamanbaslaticisi = false
-            game.CoreGui.thisoneissocoldww:Destroy()
-        end
-        getgenv().AntiAfkExecuted = true
-
-        -- 🧱 Crear Interfaz
-        local thisoneissocoldww = Instance.new("ScreenGui")
-        local mainFrame = Instance.new("Frame")
-        local UICorner = Instance.new("UICorner")
-        local closeBtn = Instance.new("TextButton")
-        local title = Instance.new("TextLabel")
-        local timerLabel = Instance.new("TextLabel")
-        local pingLabel = Instance.new("TextLabel")
-        local fpsLabel = Instance.new("TextLabel")
-
-        thisoneissocoldww.Name = "thisoneissocoldww"
-        thisoneissocoldww.Parent = game.CoreGui
-        thisoneissocoldww.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-        mainFrame.Name = "mainFrame"
-        mainFrame.Parent = thisoneissocoldww
-        mainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-        mainFrame.Position = UDim2.new(0.085, 0, 0.13, 0)
-        mainFrame.Size = UDim2.new(0, 225, 0, 96)
-        UICorner.Parent = mainFrame
-
-        closeBtn.Parent = mainFrame
-        closeBtn.BackgroundTransparency = 1
-        closeBtn.Position = UDim2.new(0.87, 0, 0.02, 0)
-        closeBtn.Size = UDim2.new(0, 27, 0, 15)
-        closeBtn.Font = Enum.Font.SourceSans
-        closeBtn.Text = "X"
-        closeBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
-        closeBtn.TextSize = 14
-        closeBtn.MouseButton1Click:Connect(function()
-            getgenv().AntiAfkExecuted = false
-            getgenv().AntiAfkEnabled = false
-            wait(0.1)
-            thisoneissocoldww:Destroy()
-        end)
-
-        title.Parent = mainFrame
-        title.BackgroundTransparency = 1
-        title.Position = UDim2.new(0.15, 0, 0, 0)
-        title.Size = UDim2.new(0, 160, 0, 24)
-        title.Font = Enum.Font.SourceSans
-        title.Text = "Anti AFK v2 by MVX_DeathKillerX"
-        title.TextColor3 = Color3.fromRGB(255, 255, 255)
-        title.TextSize = 14
-
-        pingLabel.Parent = mainFrame
-        pingLabel.BackgroundTransparency = 1
-        pingLabel.Position = UDim2.new(0.05, 0, 0.37, 0)
-        pingLabel.Size = UDim2.new(0, 55, 0, 24)
-        pingLabel.Font = Enum.Font.SourceSans
-        pingLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-        pingLabel.TextSize = 14
-
-        fpsLabel.Parent = mainFrame
-        fpsLabel.BackgroundTransparency = 1
-        fpsLabel.Position = UDim2.new(0.6, 0, 0.37, 0)
-        fpsLabel.Size = UDim2.new(0, 55, 0, 24)
-        fpsLabel.Font = Enum.Font.SourceSans
-        fpsLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-        fpsLabel.TextSize = 14
-
-        timerLabel.Parent = mainFrame
-        timerLabel.BackgroundTransparency = 1
-        timerLabel.Position = UDim2.new(0.65, 0, 0.68, 0)
-        timerLabel.Size = UDim2.new(0, 60, 0, 24)
-        timerLabel.Font = Enum.Font.SourceSans
-        timerLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-        timerLabel.TextSize = 14
-        timerLabel.Text = "0:0:0"
-
-        -- 🖱️ Hacer arrastrable
-        local Drag = mainFrame
-        local TweenService = game:GetService("TweenService")
-        local UserInputService = game:GetService("UserInputService")
-        local dragging, dragInput, dragStart, startPos
-
-        local function update(input)
-            local delta = input.Position - dragStart
-            local Smooth = {}
-            Smooth.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-            TweenService:Create(Drag, TweenInfo.new(0.04, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), Smooth):Play()
-        end
-
-        Drag.InputBegan:Connect(function(input)
-            if input.UserInputType == Enum.UserInputType.MouseButton1 then
-                dragging = true
-                dragStart = input.Position
-                startPos = Drag.Position
-                input.Changed:Connect(function()
-                    if input.UserInputState == Enum.UserInputState.End then dragging = false end
-                end)
-            end
-        end)
-        Drag.InputChanged:Connect(function(input)
-            if input.UserInputType == Enum.UserInputType.MouseMovement then
-                dragInput = input
-            end
-        end)
-        UserInputService.InputChanged:Connect(function(input)
-            if input == dragInput and dragging then update(input) end
-        end)
-
-        -- ⚡ Anti AFK funcional
-        local vu = game:GetService("VirtualUser")
-        getgenv().AntiAfkConnection = game.Players.LocalPlayer.Idled:Connect(function()
-            if getgenv().AntiAfkEnabled then
-                vu:CaptureController()
-                vu:ClickButton2(Vector2.new())
-            end
-        end)
-
-        -- 📊 FPS y Ping
-        local RunService = game:GetService("RunService")
-        local tickStart = tick()
-        local FPS = {}
-
-        RunService.RenderStepped:Connect(function()
-            if not getgenv().AntiAfkEnabled then return end
-            local now = tick()
-            for i = #FPS, 1, -1 do
-                FPS[i + 1] = (FPS[i] >= now - 1) and FPS[i] or nil
-            end
-            FPS[1] = now
-            local fps = math.floor((tick() - tickStart >= 1 and #FPS) or (#FPS / (tick() - tickStart)))
-            fpsLabel.Text = "FPS: " .. fps
-        end)
-
-        task.spawn(function()
-            while getgenv().AntiAfkEnabled do
-                task.wait(1)
-                local ping = math.floor(tonumber(game:GetService("Stats"):FindFirstChild("PerformanceStats").Ping:GetValue()))
-                pingLabel.Text = "Ping: " .. ping
-            end
-        end)
-
-        -- ⏱️ Timer
-        local s, m, h = 0, 0, 0
-        getgenv().zamanbaslaticisi = true
-        task.spawn(function()
-            while getgenv().zamanbaslaticisi and getgenv().AntiAfkEnabled do
-                s += 1
-                if s >= 60 then s = 0; m += 1 end
-                if m >= 60 then m = 0; h += 1 end
-                timerLabel.Text = string.format("%02d:%02d:%02d", h, m, s)
-                task.wait(1)
-            end
-        end)
-    else
-        -- 🚫 Si el switch está OFF, desactiva todo
-        getgenv().AntiAfkEnabled = false
-        getgenv().zamanbaslaticisi = false
-        if game.CoreGui:FindFirstChild("thisoneissocoldww") then
-            game.CoreGui.thisoneissocoldww:Destroy()
-        end
-        if getgenv().AntiAfkConnection then
-            getgenv().AntiAfkConnection:Disconnect()
         end
     end
 end)
