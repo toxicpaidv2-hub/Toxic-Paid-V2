@@ -509,15 +509,17 @@ end)
 FarmFolder:AddButton("Auto Ruleta", function(state)
     _G.AutoSpinWheel = state
     
-    if bool then
+    if state then
         spawn(function()
-            while _G.AutoSpinWheel and wait(1) do
-                game:GetService("ReplicatedStorage").rEvents.openFortuneWheelRemote:InvokeServer("openFortuneWheel", game:GetService("ReplicatedStorage").fortuneWheelChances["Fortune Wheel"])
+            while _G.AutoSpinWheel and task.wait(0.1) do
+                game:GetService("ReplicatedStorage").rEvents.openFortuneWheelRemote:InvokeServer(
+                    "openFortuneWheel",
+                    game:GetService("ReplicatedStorage").fortuneWheelChances["Fortune Wheel"]
+                )
             end
         end)
     end
 end)
-
 
 -- 🎮 Botón: Jungle Squat
 FarmFolder:AddButton("Jungle Squat", function()
@@ -686,15 +688,17 @@ end)
 RebirthFolder:AddButton("Auto Ruleta", function(state)
     _G.AutoSpinWheel = state
     
-    if bool then
+    if state then
         spawn(function()
-            while _G.AutoSpinWheel and wait(1) do
-                game:GetService("ReplicatedStorage").rEvents.openFortuneWheelRemote:InvokeServer("openFortuneWheel", game:GetService("ReplicatedStorage").fortuneWheelChances["Fortune Wheel"])
+            while _G.AutoSpinWheel and task.wait(0.1) do
+                game:GetService("ReplicatedStorage").rEvents.openFortuneWheelRemote:InvokeServer(
+                    "openFortuneWheel",
+                    game:GetService("ReplicatedStorage").fortuneWheelChances["Fortune Wheel"]
+                )
             end
         end)
     end
 end)
-
 
 
 -- 🟢 Jungle Lift (Nuevo)
