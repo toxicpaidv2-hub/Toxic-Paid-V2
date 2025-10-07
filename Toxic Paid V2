@@ -364,10 +364,10 @@ local PET_NAME = "Swift Samurai"
 local ROCK_NAME = "Rock5M"
 local PROTEIN_EGG_NAME = "ProteinEgg"
 local PROTEIN_EGG_INTERVAL = 30 * 60 -- 30 min
-local REPS_PER_CYCLE = 180
+local REPS_PER_CYCLE = 170
 local REP_DELAY = 0.01
 local ROCK_INTERVAL = 1
-local MAX_PING = 1200
+local MAX_PING = 1100
 
 local HumanoidRootPart
 local lastProteinEggTime = 0
