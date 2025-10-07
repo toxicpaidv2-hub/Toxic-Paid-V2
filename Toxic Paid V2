@@ -506,15 +506,18 @@ FarmFolder:AddSwitch("Anti Lag", function(State)
 end)
 
 -- 🎰 Botón: Girar Ruleta
-FarmFolder:AddButton("Girar Ruleta", function()
-    pcall(function()
-        game:GetService("ReplicatedStorage").rEvents.openFortuneWheelRemote:InvokeServer(
-            "openFortuneWheel",
-            game:GetService("ReplicatedStorage").fortuneWheelChances["Fortune Wheel"]
-        )
-    end)
-    print("[Ruleta] Giro ejecutado.")
+FarmFolder:AddButton("Auto Ruleta", function(state)
+    _G.AutoSpinWheel = state
+    
+    if bool then
+        spawn(function()
+            while _G.AutoSpinWheel and wait(1) do
+                game:GetService("ReplicatedStorage").rEvents.openFortuneWheelRemote:InvokeServer("openFortuneWheel", game:GetService("ReplicatedStorage").fortuneWheelChances["Fortune Wheel"])
+            end
+        end)
+    end
 end)
+
 
 -- 🎮 Botón: Jungle Squat
 FarmFolder:AddButton("Jungle Squat", function()
@@ -682,20 +685,17 @@ end)
 -- 🎰 Auto Ruleta
 RebirthFolder:AddButton("Auto Ruleta", function(state)
     _G.AutoSpinWheel = state
-    if state then
+    
+    if bool then
         spawn(function()
-            while _G.AutoSpinWheel do
-                pcall(function()
-                    game:GetService("ReplicatedStorage").rEvents.openFortuneWheelRemote:InvokeServer(
-                        "openFortuneWheel",
-                        game:GetService("ReplicatedStorage").fortuneWheelChances["Fortune Wheel"]
-                    )
-                end)
-                task.wait(1.5)
+            while _G.AutoSpinWheel and wait(1) do
+                game:GetService("ReplicatedStorage").rEvents.openFortuneWheelRemote:InvokeServer("openFortuneWheel", game:GetService("ReplicatedStorage").fortuneWheelChances["Fortune Wheel"])
             end
         end)
     end
 end)
+
+
 
 -- 🟢 Jungle Lift (Nuevo)
 RebirthFolder:AddButton("Jungle Lift", function()
