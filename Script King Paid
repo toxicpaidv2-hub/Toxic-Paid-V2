@@ -49,7 +49,7 @@ end
 
 
 -- CARGA DE LIBRERÍA
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/rafael25ic-blip/phoenix-cracked/refs/heads/main/Librerya%20Phoenix%20Crack"))()
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/memejames/elerium-v2-ui-library//main/Library", true))()
 
 -- VENTANA PRINCIPAL
 local window = library:AddWindow("K1NG MVX PRIVATE ", {
