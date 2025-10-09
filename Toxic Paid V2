@@ -59,6 +59,7 @@ local window = library:AddWindow("⚠️ Toxic PAID V2 | By Rafael ⚠️", {
 })
 
 local AutoFarm = window:AddTab("Farm OP")
+AutoFarm:Show()
 
 
 -- 1️⃣ Switch: Fuerza OP
@@ -1446,7 +1447,6 @@ end, "Teletransporte continuo al Rey MÃºsculo")
 
 -- 📊 NUEVA PESTAÑA: CALCULAR STATS
 local features = window:AddTab("Stats Farm")
-features:Show()
 
 
 local player = game.Players.LocalPlayer
