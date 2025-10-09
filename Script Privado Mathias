@@ -58,6 +58,15 @@ local window = library:AddWindow("Script Private MathiKing", {
     can_resize = false,
 })
 
+
+-- Cambiar color del texto en toda la interfaz
+Elerium.Theme.TextColor = Color3.fromRGB(0, 0, 0) -- negro
+Elerium.Theme.SectionTextColor = Color3.fromRGB(0, 0, 0) -- texto de secciones
+Elerium.Theme.TabTextColor = Color3.fromRGB(0, 0, 0) -- texto de pestañas
+Elerium.Theme.LabelTextColor = Color3.fromRGB(0, 0, 0) -- texto de etiquetas
+Elerium.Theme.ButtonTextColor = Color3.fromRGB(0, 0, 0) -- texto de botones
+
+
 local AutoFarm = window:AddTab("Farm OP")
 
 
