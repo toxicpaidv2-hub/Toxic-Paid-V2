@@ -52,7 +52,7 @@ end
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/rafael25ic-blip/phoenix-cracked/refs/heads/main/Librerya%20Phoenix%20Crack"))()
 
 -- VENTANA PRINCIPAL
-local window = library:AddWindow("BIG L MATHIAS", {
+local window = library:AddWindow("BIG L MATHIAS DANOS EGGS A JASSON Y A MI", {
     main_color = Color3.fromRGB(200, 0, 0), 
     min_size = Vector2.new(600, 820),
     can_resize = false,
