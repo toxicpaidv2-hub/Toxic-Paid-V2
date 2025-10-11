@@ -3863,6 +3863,39 @@ Killer:AddButton("Pegar Muerto", function()
 end)
 
 
+Killer:AddButton(
+    "Clear Blacklist",
+    function()
+        _G.blacklistedPlayers = {}
+    end
+)
+
+local function updateWhitelistLabel()
+    if #_G.whitelistedPlayers == 0 then
+        whitelistLabel.Text = "Whitelist: None"
+    else
+        whitelistLabel.Text = "Whitelist: " .. table.concat(_G.whitelistedPlayers, ", ")
+    end
+end
+
+local function updateBlacklistLabel()
+    if #_G.blacklistedPlayers == 0 then
+        blacklistLabel.Text = "Killlist: None"
+    else
+        blacklistLabel.Text = "Killlist: " .. table.concat(_G.blacklistedPlayers, ", ")
+    end
+end
+
+task.spawn(
+    function()
+        while true do
+            updateWhitelistLabel()
+            updateBlacklistLabel()
+            task.wait(0.2)
+        end
+    end
+)
+
 
 local Lighting = game:GetService("Lighting")
 
